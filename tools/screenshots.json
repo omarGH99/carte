@@ -1,0 +1,362 @@
+[
+ {
+  "out": "screenshots/mobile/kumo-1-cover.png",
+  "path": "/menu/?b=kumo&demo=0",
+  "lang": "en",
+  "steps": []
+ },
+ {
+  "out": "screenshots/mobile/kumo-2-menu.png",
+  "path": "/menu/?b=kumo",
+  "lang": "en",
+  "steps": [
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 745)",
+   "await sleep(500); document.getElementById('to-top').hidden = true"
+  ]
+ },
+ {
+  "out": "screenshots/mobile/fico-1-cover.png",
+  "path": "/menu/?b=fico&demo=0",
+  "lang": "en",
+  "steps": []
+ },
+ {
+  "out": "screenshots/mobile/fico-2-menu.png",
+  "path": "/menu/?b=fico",
+  "lang": "en",
+  "steps": [
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 745)",
+   "await sleep(500); document.getElementById('to-top').hidden = true"
+  ]
+ },
+ {
+  "out": "screenshots/mobile/juniper-1-cover.png",
+  "path": "/menu/?b=juniper&demo=0",
+  "lang": "en",
+  "steps": []
+ },
+ {
+  "out": "screenshots/mobile/juniper-2-menu.png",
+  "path": "/menu/?b=juniper",
+  "lang": "en",
+  "steps": [
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 745)",
+   "await sleep(500); document.getElementById('to-top').hidden = true"
+  ]
+ },
+ {
+  "out": "screenshots/mobile/kumo-3-dish.png",
+  "path": "/menu/?b=kumo#dish=shoyu",
+  "lang": "en",
+  "steps": [
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 745)",
+   "await sleep(400); document.getElementById('to-top').hidden = true"
+  ]
+ },
+ {
+  "out": "screenshots/mobile/fico-3-dish-sizes.png",
+  "path": "/menu/?b=fico#dish=margherita",
+  "lang": "en",
+  "steps": [
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 745)",
+   "await sleep(400); document.getElementById('to-top').hidden = true",
+   "click('[data-variant=\"1\"]')"
+  ]
+ },
+ {
+  "out": "screenshots/mobile/juniper-3-dish.png",
+  "path": "/menu/?b=juniper#dish=avocado-toast",
+  "lang": "en",
+  "steps": [
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 745)",
+   "await sleep(400); document.getElementById('to-top').hidden = true"
+  ]
+ },
+ {
+  "out": "screenshots/mobile/kumo-4-arabic.png",
+  "path": "/menu/?b=kumo",
+  "lang": "ar",
+  "steps": [
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 745)",
+   "await sleep(500); document.getElementById('to-top').hidden = true"
+  ]
+ },
+ {
+  "out": "screenshots/mobile/fico-4-arabic.png",
+  "path": "/menu/?b=fico",
+  "lang": "ar",
+  "steps": [
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 1450)",
+   "await sleep(500); document.getElementById('to-top').hidden = true"
+  ]
+ },
+ {
+  "out": "screenshots/mobile/juniper-4-kurdish.png",
+  "path": "/menu/?b=juniper",
+  "lang": "ku",
+  "steps": [
+   "click('[data-group=\"food\"]')",
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 1250)",
+   "await sleep(500); document.getElementById('to-top').hidden = true"
+  ]
+ },
+ {
+  "out": "screenshots/mobile/kumo-5-kurdish-cover.png",
+  "path": "/menu/?b=kumo&demo=0",
+  "lang": "ku",
+  "steps": []
+ },
+ {
+  "out": "screenshots/mobile/fico-5-filters.png",
+  "path": "/menu/?b=fico",
+  "lang": "en",
+  "steps": [
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 745)",
+   "await sleep(400); document.getElementById('to-top').hidden = true",
+   "click('#filter-open')",
+   "click('[data-diet=\"veg\"]')",
+   "click('[data-allergen=\"milk\"]')"
+  ]
+ },
+ {
+  "out": "screenshots/mobile/fico-6-allergy-marked.png",
+  "path": "/menu/?b=fico",
+  "lang": "en",
+  "steps": [
+   "click('#filter-open')",
+   "click('[data-allergen=\"milk\"]')",
+   "history.back()",
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 1450)",
+   "await sleep(500); document.getElementById('to-top').hidden = true"
+  ]
+ },
+ {
+  "out": "screenshots/mobile/juniper-5-my-list.png",
+  "path": "/menu/?b=juniper",
+  "lang": "en",
+  "steps": [
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 745)",
+   "await sleep(400); document.getElementById('to-top').hidden = true",
+   "click('[data-add=\"flat-white\"]')",
+   "click('[data-add=\"matcha-latte\"]')",
+   "click('[data-add=\"matcha-latte\"]')",
+   "click('[data-sheet-step=\"1\"]')",
+   "history.back()",
+   "click('[data-add=\"cappuccino\"]')",
+   "click('[data-variant=\"1\"]')",
+   "click('[data-sheet-step=\"1\"]')",
+   "history.back()",
+   "click('#tray')"
+  ]
+ },
+ {
+  "out": "screenshots/mobile/juniper-6-show-server.png",
+  "path": "/menu/?b=juniper",
+  "lang": "en",
+  "steps": [
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 745)",
+   "await sleep(400); document.getElementById('to-top').hidden = true",
+   "click('[data-add=\"flat-white\"]')",
+   "click('[data-add=\"matcha-latte\"]')",
+   "click('[data-add=\"matcha-latte\"]')",
+   "click('[data-sheet-step=\"1\"]')",
+   "history.back()",
+   "click('[data-add=\"cappuccino\"]')",
+   "click('[data-variant=\"1\"]')",
+   "click('[data-sheet-step=\"1\"]')",
+   "history.back()",
+   "click('#tray')",
+   "click('#show-server')"
+  ]
+ },
+ {
+  "out": "screenshots/mobile/juniper-7-show-server-kurdish.png",
+  "path": "/menu/?b=juniper",
+  "lang": "ku",
+  "steps": [
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 745)",
+   "await sleep(400); document.getElementById('to-top').hidden = true",
+   "click('[data-add=\"flat-white\"]')",
+   "click('[data-add=\"matcha-latte\"]')",
+   "click('[data-add=\"matcha-latte\"]')",
+   "click('[data-sheet-step=\"1\"]')",
+   "history.back()",
+   "click('[data-add=\"cappuccino\"]')",
+   "click('[data-variant=\"1\"]')",
+   "click('[data-sheet-step=\"1\"]')",
+   "history.back()",
+   "click('#tray')",
+   "click('#show-server')"
+  ]
+ },
+ {
+  "out": "screenshots/mobile/kumo-6-search.png",
+  "path": "/menu/?b=kumo",
+  "lang": "en",
+  "steps": [
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 745)",
+   "await sleep(400); document.getElementById('to-top').hidden = true",
+   "click('#search-open')",
+   "const i=document.getElementById('search-input'); i.value='chicken'; i.dispatchEvent(new Event('input'))"
+  ]
+ },
+ {
+  "out": "screenshots/mobile/fico-7-search-arabic.png",
+  "path": "/menu/?b=fico",
+  "lang": "ar",
+  "steps": [
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 745)",
+   "await sleep(400); document.getElementById('to-top').hidden = true",
+   "click('#search-open')",
+   "const i=document.getElementById('search-input'); i.value='pizza'; i.dispatchEvent(new Event('input'))"
+  ]
+ },
+ {
+  "out": "screenshots/mobile/kumo-7-info-hours.png",
+  "path": "/menu/?b=kumo",
+  "lang": "en",
+  "steps": [
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 745)",
+   "await sleep(400); document.getElementById('to-top').hidden = true",
+   "click('#info-open')"
+  ]
+ },
+ {
+  "out": "screenshots/mobile/kumo-8-contents.png",
+  "path": "/menu/?b=kumo",
+  "lang": "en",
+  "steps": [
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 745)",
+   "await sleep(400); document.getElementById('to-top').hidden = true",
+   "click('#contents-open')"
+  ]
+ },
+ {
+  "out": "screenshots/desktop/landing-page-full.png",
+  "path": "/",
+  "lang": "en",
+  "w": 1440,
+  "h": 900,
+  "scale": 1,
+  "full": true,
+  "steps": [
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 1500)",
+   "await sleep(2500); window.scrollTo(0,0)"
+  ]
+ },
+ {
+  "out": "screenshots/desktop/landing-page-top.png",
+  "path": "/",
+  "lang": "en",
+  "w": 1440,
+  "h": 900,
+  "scale": 1,
+  "full": false,
+  "steps": []
+ },
+ {
+  "out": "screenshots/desktop/kumo-cover.png",
+  "path": "/menu/?b=kumo&demo=0",
+  "lang": "en",
+  "w": 1440,
+  "h": 900,
+  "scale": 1,
+  "full": false,
+  "steps": []
+ },
+ {
+  "out": "screenshots/desktop/kumo-menu.png",
+  "path": "/menu/?b=kumo",
+  "lang": "en",
+  "w": 1440,
+  "h": 900,
+  "scale": 1,
+  "full": false,
+  "steps": [
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 820)",
+   "await sleep(500); document.getElementById('to-top').hidden = true"
+  ]
+ },
+ {
+  "out": "screenshots/desktop/fico-cover.png",
+  "path": "/menu/?b=fico&demo=0",
+  "lang": "en",
+  "w": 1440,
+  "h": 900,
+  "scale": 1,
+  "full": false,
+  "steps": []
+ },
+ {
+  "out": "screenshots/desktop/fico-menu.png",
+  "path": "/menu/?b=fico",
+  "lang": "en",
+  "w": 1440,
+  "h": 900,
+  "scale": 1,
+  "full": false,
+  "steps": [
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 820)",
+   "await sleep(500); document.getElementById('to-top').hidden = true"
+  ]
+ },
+ {
+  "out": "screenshots/desktop/juniper-cover.png",
+  "path": "/menu/?b=juniper&demo=0",
+  "lang": "en",
+  "w": 1440,
+  "h": 900,
+  "scale": 1,
+  "full": false,
+  "steps": []
+ },
+ {
+  "out": "screenshots/desktop/juniper-menu.png",
+  "path": "/menu/?b=juniper",
+  "lang": "en",
+  "w": 1440,
+  "h": 900,
+  "scale": 1,
+  "full": false,
+  "steps": [
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 820)",
+   "await sleep(500); document.getElementById('to-top').hidden = true"
+  ]
+ },
+ {
+  "out": "screenshots/desktop/fico-dish.png",
+  "path": "/menu/?b=fico#dish=ragu",
+  "lang": "en",
+  "w": 1440,
+  "h": 900,
+  "scale": 1,
+  "full": false,
+  "steps": [
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 820)",
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 745)",
+   "await sleep(400); document.getElementById('to-top').hidden = true"
+  ]
+ },
+ {
+  "out": "screenshots/desktop/juniper-arabic.png",
+  "path": "/menu/?b=juniper",
+  "lang": "ar",
+  "w": 1440,
+  "h": 900,
+  "scale": 1,
+  "full": false,
+  "steps": [
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 820)",
+   "await sleep(500); document.getElementById('to-top').hidden = true"
+  ]
+ },
+ {
+  "out": "screenshots/mobile/landing-page-full.png",
+  "path": "/",
+  "w": 390,
+  "h": 844,
+  "scale": 2,
+  "full": true,
+  "wait": 3000
+ }
+]

@@ -1,0 +1,51 @@
+[
+ {
+  "out": "screenshots/motion/kumo-plating.png",
+  "path": "/menu/?b=kumo",
+  "lang": "en",
+  "steps": [
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 745); await sleep(500); document.getElementById('to-top').hidden = true"
+  ],
+  "record": {
+   "trigger": "click('[data-item=\"spicy-miso\"]')",
+   "ms": 3000
+  }
+ },
+ {
+  "out": "screenshots/motion/fico-plating.png",
+  "path": "/menu/?b=fico",
+  "lang": "en",
+  "steps": [
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 1450); await sleep(500); document.getElementById('to-top').hidden = true"
+  ],
+  "record": {
+   "trigger": "click('[data-item=\"ragu\"]')",
+   "ms": 2800
+  }
+ },
+ {
+  "out": "screenshots/motion/juniper-plating.png",
+  "path": "/menu/?b=juniper",
+  "lang": "en",
+  "steps": [
+   "click('[data-group=\"food\"]')",
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 745); await sleep(500); document.getElementById('to-top').hidden = true"
+  ],
+  "record": {
+   "trigger": "click('[data-item=\"kurdish-breakfast\"]')",
+   "ms": 2200
+  }
+ },
+ {
+  "out": "screenshots/motion/juniper-add-to-list.png",
+  "path": "/menu/?b=juniper",
+  "lang": "en",
+  "steps": [
+   "document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 745); await sleep(500); document.getElementById('to-top').hidden = true"
+  ],
+  "record": {
+   "trigger": "click('[data-add=\"flat-white\"]')",
+   "ms": 1400
+  }
+ }
+]

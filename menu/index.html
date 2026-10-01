@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Menu</title>
+<meta name="description" content="A multilingual QR menu: one engine, any restaurant.">
+<meta name="theme-color" content="#111318">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script>
+  // Runs before first paint. Picks the brand from ?b= (or the last one
+  // viewed), sets data-brand so the right palette paints immediately, and
+  // starts that brand's fonts downloading. Adding a brand means adding a
+  // line here, a JSON file in brands/ and a token block in css/themes.css.
+  window.MENU_BRANDS = {
+    kumo: { name: 'Kumo', fonts: 'family=Shippori+Mincho:wght@600;800&family=Inter:wght@400;500;600&family=Noto+Kufi+Arabic:wght@400;600;700' },
+    fico: { name: 'Fico', fonts: 'family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Work+Sans:wght@400;500;600&family=Noto+Naskh+Arabic:wght@400;600;700' },
+    juniper: { name: 'Juniper', fonts: 'family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Noto+Sans+Arabic:wght@400;600;700' }
+  };
+  (function () {
+    var brands = window.MENU_BRANDS;
+    var params = new URLSearchParams(location.search);
+    var id = params.get('b');
+    if (!brands[id]) {
+      try { id = localStorage.getItem('menu.brand'); } catch (e) { id = null; }
+    }
+    if (!brands[id]) id = 'kumo';
+    window.MENU_BRAND = id;
+    document.documentElement.dataset.brand = id;
+    if (params.get('demo') === '0') document.documentElement.dataset.demo = 'off';
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://fonts.googleapis.com/css2?' + brands[id].fonts + '&display=swap';
+    document.head.appendChild(link);
+  })();
+</script>
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/menu.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to menu</a>
+
+<!-- ---------- hero ---------- -->
+<header class="hero" id="hero">
+  <div class="demo-ribbon" id="demo-ribbon">
+    <span id="demo-text"></span>
+    <nav class="demo-brands" id="demo-brands" aria-label="Brands"></nav>
+  </div>
+  <div class="hero-frame">
+    <div class="hero-mark" id="hero-mark" aria-hidden="true"></div>
+    <p class="kicker" id="hero-kicker"></p>
+    <h1 class="wordmark" id="hero-name"></h1>
+    <p class="hero-kind" id="hero-kind"></p>
+    <div class="orn" aria-hidden="true"><i></i><b></b><i></i></div>
+    <p class="hero-sub" id="hero-sub"></p>
+    <p class="hero-status" id="hero-status"></p>
+  </div>
+  <button class="hero-cue" id="hero-cue" type="button">
+    <span id="hero-cue-text"></span>
+    <span class="hero-cue-arrow" aria-hidden="true">↓</span>
+  </button>
+</header>
+
+<!-- ---------- sticky bar ---------- -->
+<div class="bar" id="bar">
+  <div class="bar-top">
+    <button class="bar-mark" id="bar-mark" type="button"></button>
+    <div class="bar-actions">
+      <button class="ib" id="search-open" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.2-4.2"/></svg></button>
+      <button class="ib" id="filter-open" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg><span class="ib-dot" id="filter-dot" hidden></span></button>
+      <button class="ib" id="info-open" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 7.6v.6"/></svg></button>
+      <div class="langs" id="langs" role="group"></div>
+    </div>
+  </div>
+  <nav class="groups" id="groups"></nav>
+  <div class="rail-row">
+    <nav class="rail" id="rail"></nav>
+    <button class="rail-all" id="contents-open" type="button">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+      <span id="contents-label"></span>
+    </button>
+  </div>
+</div>
+
+<p class="alert-bar" id="alert-bar" role="status" hidden></p>
+
+<main id="main" tabindex="-1"></main>
+
+<footer class="foot">
+  <div class="orn" aria-hidden="true"><i></i><b></b><i></i></div>
+  <p class="foot-name" id="foot-name"></p>
+  <p id="foot-address"></p>
+  <p id="foot-prices"></p>
+  <p class="foot-note" id="foot-note"></p>
+  <p class="foot-tools">
+    <button type="button" class="link" id="print-menu"></button>
+  </p>
+  <p class="foot-credit" id="foot-credit"></p>
+</footer>
+
+<button class="to-top" id="to-top" type="button" hidden>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V6"/><path d="M6 11.5L12 5.5l6 6"/></svg>
+</button>
+
+<!-- A list to show the server: not an order, nothing leaves the phone. -->
+<button class="tray" id="tray" type="button" hidden>
+  <span class="tray-count" id="tray-count"></span>
+  <span class="tray-text" id="tray-text"></span>
+  <span class="tray-total" id="tray-total"></span>
+</button>
+
+<p class="toast" id="toast" role="status" hidden></p>
+
+<!-- ---------- dish ---------- -->
+<div class="ov" id="sheet-wrap" hidden>
+  <div class="scrim" data-close></div>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-name">
+    <button class="sheet-close" data-close type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <p class="sheet-alert" id="sheet-alert" hidden></p>
+    <div class="sheet-media" id="sheet-media"></div>
+    <div class="sheet-body">
+      <div class="sheet-head">
+        <h2 id="sheet-name"></h2>
+        <p class="sheet-price" id="sheet-price"></p>
+      </div>
+      <div class="sheet-tags" id="sheet-tags"></div>
+      <p class="sheet-desc" id="sheet-desc"></p>
+      <div class="facts" id="sheet-facts"></div>
+    </div>
+    <div class="sheet-foot" id="sheet-foot"></div>
+  </div>
+</div>
+
+<!-- ---------- search ---------- -->
+<div class="ov" id="search-wrap" hidden>
+  <div class="scrim" data-close></div>
+  <div class="panel" role="dialog" aria-modal="true" id="search-panel">
+    <div class="panel-head">
+      <input type="search" id="search-input" autocomplete="off" spellcheck="false" enterkeyhint="search">
+      <button class="tb" data-close id="search-cancel" type="button"></button>
+    </div>
+    <ul class="results" id="results"></ul>
+    <p class="blank" id="search-empty" hidden></p>
+  </div>
+</div>
+
+<!-- ---------- filters ---------- -->
+<div class="ov" id="filter-wrap" hidden>
+  <div class="scrim" data-close></div>
+  <div class="panel" role="dialog" aria-modal="true" aria-labelledby="filter-title">
+    <div class="panel-head">
+      <h2 id="filter-title"></h2>
+      <button class="tb" id="filter-clear" type="button"></button>
+      <button class="tb" data-close id="filter-done" type="button"></button>
+    </div>
+    <div class="panel-body" id="filter-body"></div>
+  </div>
+</div>
+
+<!-- ---------- contents ---------- -->
+<div class="ov" id="contents-wrap" hidden>
+  <div class="scrim" data-close></div>
+  <div class="panel" role="dialog" aria-modal="true" aria-labelledby="contents-title">
+    <div class="panel-head">
+      <h2 id="contents-title"></h2>
+      <button class="tb" data-close type="button" id="contents-close"></button>
+    </div>
+    <div class="panel-body" id="contents-body"></div>
+  </div>
+</div>
+
+<!-- ---------- my list ---------- -->
+<div class="ov" id="list-wrap" hidden>
+  <div class="scrim" data-close></div>
+  <div class="panel" role="dialog" aria-modal="true" aria-labelledby="list-title">
+    <div class="panel-head">
+      <h2 id="list-title"></h2>
+      <button class="tb" id="list-clear" type="button"></button>
+      <button class="tb" data-close type="button" id="list-close"></button>
+    </div>
+    <p class="lead list-lead" id="list-lead"></p>
+    <ul class="lines" id="list-items"></ul>
+    <div class="list-foot" id="list-foot"></div>
+  </div>
+</div>
+
+<!-- ---------- show to server ---------- -->
+<div class="ov ov-server" id="server-wrap" hidden>
+  <div class="server" role="dialog" aria-modal="true" aria-labelledby="server-title">
+    <button class="sheet-close" data-close type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <h2 id="server-title"></h2>
+    <ul id="server-items"></ul>
+    <p class="server-total" id="server-total"></p>
+    <p class="server-note" id="server-note"></p>
+  </div>
+</div>
+
+<!-- ---------- info ---------- -->
+<div class="ov" id="info-wrap" hidden>
+  <div class="scrim" data-close></div>
+  <div class="panel" role="dialog" aria-modal="true" aria-labelledby="info-title">
+    <div class="panel-head">
+      <h2 id="info-title"></h2>
+      <button class="tb" data-close type="button" id="info-close"></button>
+    </div>
+    <div class="panel-body" id="info-body"></div>
+  </div>
+</div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

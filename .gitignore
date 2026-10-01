@@ -1,0 +1,9 @@
+# The original client project this grew out of: their photos, contact
+# details and wi-fi password. Never publish.
+_private/
+
+_scratch/
+node_modules/
+__pycache__/
+.DS_Store
+Thumbs.db

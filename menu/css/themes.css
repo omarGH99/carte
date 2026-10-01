@@ -1,0 +1,107 @@
+/* Brand tokens.
+   Each brand fills the same slots; menu.css only ever reads tokens. A new
+   brand is one block here plus its JSON file. Contrast for every text pair
+   is checked by tools/check_contrast.mjs (WCAG AA, 4.5:1 for body text). */
+
+/* ---------- Kumo: ink, washi and vermilion ---------- */
+:root[data-brand="kumo"] {
+  --bg: #111318;
+  --surface: #181b22;
+  --surface-2: #21252e;
+  --ink: #f1ece3;
+  --muted: #a8a59e;
+  --accent: #e8603f;
+  --accent-ink: #f27c5f;
+  --on-accent: #111318;
+  --line: rgba(241, 236, 227, 0.16);
+  --line-soft: rgba(241, 236, 227, 0.08);
+  --leader: rgba(241, 236, 227, 0.28);
+  --danger: #ff9f8f;
+  --danger-bg: #43150f;
+  --danger-line: #9b3a2a;
+  --open: #86d9a6;
+  --spicy: #ff7a5c;
+  --scrim: rgba(5, 6, 8, 0.74);
+  --pattern: rgba(241, 236, 227, 0.035);
+
+  --font-display: 'Shippori Mincho', 'Times New Roman', serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display-rtl: 'Noto Kufi Arabic', 'Segoe UI', Tahoma, sans-serif;
+  --font-body-rtl: 'Noto Kufi Arabic', 'Segoe UI', Tahoma, sans-serif;
+  --display-weight: 800;
+  --head-case: uppercase;
+  --head-tracking: 0.32em;
+  --radius: 2px;
+  --radius-lg: 4px;
+  --thumb-radius: 2px;
+}
+
+/* ---------- Fico: a printed card on warm paper ---------- */
+:root[data-brand="fico"] {
+  --bg: #f5efe3;
+  --surface: #fbf7ef;
+  --surface-2: #efe6d4;
+  --ink: #2b211c;
+  --muted: #6b5c50;
+  --accent: #a8481f;
+  --accent-ink: #9a3f19;
+  --on-accent: #fffaf2;
+  --line: rgba(43, 33, 28, 0.24);
+  --line-soft: rgba(43, 33, 28, 0.12);
+  --leader: rgba(43, 33, 28, 0.38);
+  --danger: #8f2316;
+  --danger-bg: #f8e1d9;
+  --danger-line: #d79a88;
+  --open: #3f6b2a;
+  --spicy: #b8321c;
+  --scrim: rgba(43, 33, 28, 0.5);
+  --pattern: rgba(43, 33, 28, 0.05);
+
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Work Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display-rtl: 'Noto Naskh Arabic', 'Times New Roman', serif;
+  --font-body-rtl: 'Noto Naskh Arabic', 'Segoe UI', Tahoma, serif;
+  --display-weight: 600;
+  --head-case: none;
+  --head-tracking: 0;
+  --radius: 2px;
+  --radius-lg: 3px;
+  --thumb-radius: 50%;
+}
+
+/* ---------- Juniper: bright, rounded, friendly ---------- */
+:root[data-brand="juniper"] {
+  --bg: #fbf8f1;
+  --surface: #ffffff;
+  --surface-2: #f3eee2;
+  --ink: #23233a;
+  --muted: #5c5c70;
+  --accent: #4a47a3;
+  --accent-ink: #4a47a3;
+  --on-accent: #ffffff;
+  --line: rgba(35, 35, 58, 0.16);
+  --line-soft: rgba(35, 35, 58, 0.08);
+  --leader: rgba(35, 35, 58, 0.3);
+  --danger: #a3261b;
+  --danger-bg: #fde7e2;
+  --danger-line: #eaa79c;
+  --open: #2d7a4b;
+  --spicy: #d2452b;
+  --scrim: rgba(35, 35, 58, 0.45);
+  --pattern: rgba(74, 71, 163, 0.06);
+  --butter: #f6d77a;
+  --sage: #cfe0c3;
+  --blush: #f4c7b8;
+  --lilac: #c9cdee;
+
+  --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display-rtl: 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
+  --font-body-rtl: 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
+  --display-weight: 800;
+  --head-case: none;
+  --head-tracking: -0.01em;
+  --radius: 14px;
+  --radius-lg: 22px;
+  --thumb-radius: 14px;
+}
